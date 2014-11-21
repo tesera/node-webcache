@@ -23,7 +23,11 @@ var WebCache = function (urls, options) {
     this.isReady = false;
 
     if(this.options.refreshInterval) {
-        setInterval(this.seed.bind(this), this.options.refreshInterval);
+        var that = this;
+        that.seed();
+        setInterval(function () {
+            that.seed();
+        }, this.options.refreshInterval);
     }
 };
 
@@ -38,11 +42,14 @@ WebCache.prototype.seed = function () {
                     url: url,
                     data: body
                 }
-            }
+            },
+            timeout: 300000
         };
 
         return rp(options).catch(function(e) {console.log(e)});
     });
+
+    console.log('cache started and seeding %s items.', requests.length);
 
     return Q.allSettled(requests).then(function (results) {
         results = _.groupBy(results, 'state');
