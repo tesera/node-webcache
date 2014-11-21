@@ -10,6 +10,7 @@
   "license": "MIT",
   "repository": "https://github.com/tesera/node-webcache.git",
   "dependencies": {
+    "lodash": "^2.4.1",
     "q": "^1.1.1",
     "request-promise": "^0.3.2"
   }
