@@ -1,0 +1,16 @@
+{
+  "name": "webcache",
+  "version": "0.0.1",
+  "description": "simple web cacher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yves Richard",
+  "license": "MIT",
+  "repository": "https://github.com/tesera/node-webcache.git",
+  "dependencies": {
+    "q": "^1.1.1",
+    "request-promise": "^0.3.2"
+  }
+}
