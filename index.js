@@ -75,6 +75,7 @@ WebCache.prototype.get = function (url) {
 };
 
 WebCache.prototype.cacheUrl = function (url, data) {
+    this.urls.push(url);
     return this.cache.set(url, data);
 };
 
