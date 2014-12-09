@@ -46,7 +46,7 @@ WebCache.prototype.seed = function () {
             timeout: 300000
         };
 
-        return rp(options).catch(function(e) {console.log(e)});
+        return rp(options).catch(function(e) { console.log(e); });
     });
 
     console.log('cache started and seeding %s items.', requests.length);
@@ -72,6 +72,10 @@ WebCache.prototype.seed = function () {
 
 WebCache.prototype.get = function (url) {
     return this.cache.get(url);
+};
+
+WebCache.prototype.cacheUrl = function (url, data) {
+    return this.cache.set(url, data);
 };
 
 module.exports = WebCache;
