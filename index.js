@@ -37,7 +37,11 @@ WebCache.prototype.seed = function () {
     var requests = this.urls.map(function (url) { 
         var options = {
             uri: url,
+            headers: {
+                'cache-control': 'no-cache'
+            },
             transform: function (body, response) {
+                console.log(url);
                 return {
                     url: url,
                     data: body
